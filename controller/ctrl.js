@@ -20,7 +20,9 @@ module.exports = {
         if(!address || !price || !imageURL){
             res.sendStatus(400);
         }
+        
         const copy = {...req.body, id: globalHouseId}
+        // req.body.price.value = +req.body.price.value
         houses.push(copy)
         globalHouseId++
 
@@ -30,6 +32,7 @@ module.exports = {
         const {id} = req.params;
         const {type} = req.body;
         const idx = houses.findIndex(house => house.id === +id)
+        // houses[idx].price = +houses[idx].price
         if(type === 'minus' && houses[idx].price > 10000){
             houses[idx].price -= 10000
             res.status(200).send(houses)

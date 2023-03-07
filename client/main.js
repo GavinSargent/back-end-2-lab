@@ -20,7 +20,7 @@ function submitHandler(e) {
 
     let bodyObj = {
         address: address.value,
-        price: price.value, 
+        price: +price.value, 
         imageURL: imageURL.value
     }
 
