@@ -20,7 +20,7 @@ module.exports = {
         if(!address || !price || !imageURL){
             res.sendStatus(400);
         }
-        const copy = {...req.body, globalHouseId}
+        const copy = {...req.body, id: globalHouseId}
         houses.push(copy)
         globalHouseId++
 
