@@ -30,11 +30,11 @@ module.exports = {
         const {id} = req.params;
         const {type} = req.body;
         const idx = houses.findIndex(house => house.id === +id)
-        if(type === 'plus'){
-            houses[idx].price += 10000
+        if(type === 'minus' && houses[idx].price > 10000){
+            houses[idx].price -= 10000
             res.status(200).send(houses)
         } else {
-            houses[idx].price -= 10000
+            houses[idx].price += 10000
             res.status(200).send(houses)
         }
     }
